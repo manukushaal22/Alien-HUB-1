@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark fixed-top navv">
+	<h1 class="navv1">Alien Hub</h1><button class="lgt" (click)="lgt()">Logout</button>
+</nav>
+<div class="maincont col-md-12">
+	<div class="card col-md-12 maincont">
+	  <div class="card-body">
+	  	<input class="chatInput col-md-8" type="text" name="msg" [(ngModel)]="chat.msg"  placeholder="What's in your mind?">
+		<button class="ml-1 col-md-3 poster" (click)="onMsgSubmit()">
+			Post
+		</button>
+	  </div>
+	</div>
+
+	<!-- Chats list goes here -->
+	<div class="list-group messageList maincont">
+	    <a  class="list-group-item maincont1" *ngFor="let chat of allChats" style="max-height: 90px !important;">
+	      	<h5 class="list-group-item-heading">
+	      	{{chat.msg}}
+	  		</h5>
+	      	<p class="list-group-item-text">
+		    {{chat.userName}} on 
+		    <small>{{chat.crAt|date:"medium"}}</small>
+		  	</p>
+	    </a>
+	    
+	  </div>
+</div>
+
